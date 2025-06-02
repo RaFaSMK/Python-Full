@@ -253,10 +253,10 @@ class ControllerVenda:
     
 class ControllerFornecedor:
     def cadastrarFornecedor(self, nome, cnpj, telefone, categoria):
-        x = DaoFornecedor.ler()
-
-        listaCnpj = list(filter(lambda x: x.cnpj == cpnj, x))
-        listaTelefone = list(filter(lambda x: x.telefone == telefone, x))
+        
+        lista_fornecedores = DaoFornecedor.ler()
+        listaCnpj = list(filter(lambda x: x.cnpj == cnpj, lista_fornecedores))
+        listaTelefone = list(filter(lambda x: x.telefone == telefone, lista_fornecedores))
 
         if len(listaCnpj) > 0:
             print("Este CNPJ ja existe!")
