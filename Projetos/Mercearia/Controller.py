@@ -135,7 +135,7 @@ class ControllerEstoque:
             if len(est) > 0:
                 est = list(filter(lambda x: x.produto.nome == novoNome,x))
                 if len(est) == 0:
-                    x = list(map(lambda x: Estoque(Produtos(novoNome,novoPreco,novaCategoria,novaQuantidade) if (x.produto.nome == nomeAlterar) else(x)),x))
+                    x = list(map(lambda x: Estoque(Produtos(novoNome,novoPreco,novaCategoria),novaQuantidade) if (x.produto.nome == nomeAlterar) else(x),x))
                     print("Produto alterado com sucesso")
                 else:
                     print("Produto ja cadastrado")
@@ -160,7 +160,7 @@ class ControllerEstoque:
                 print(f"Nome: {i.produto.nome}\n"
                       f"Preco: {i.produto.preco}\n"
                       f"Categoria: {i.produto.categoria}\n"
-                      f"Quantidade: {i.produto.quantidade}\n"
+                      f"Quantidade: {i.quantidade}\n"
                       )
             print("--------------------")
                 
@@ -265,6 +265,8 @@ class ControllerFornecedor:
         else:
             if len(cnpj) == 14 and len(telefone) <= 11 and len(telefone) >= 10:
                 DaoFornecedor.salvar(Fornecedor(nome, cnpj, telefone, categoria))
+                print("Fornecedor cadastrado com sucesso \n")
+
             else:
                 print("Digite um cpf ou telefone válido")
     
@@ -273,19 +275,19 @@ class ControllerFornecedor:
 
         est = list(filter(lambda x: x.nome == nomeAlterar, x))
         if len(est) > 0:
-            est = list(filter(lambda x: x.cpnj == novoCnpj, x))
+            est = list(filter(lambda x: x.cnpj == novoCnpj, x))
             if len(est) == 0:
-                list(lambda x: Fornecedor(novoNome, novoCnpj, novoTelefone, novaCategoria) if(x.nome == nomeAlterar) else(x), x)
+                x = list(map(lambda x: Fornecedor(novoNome, novoCnpj, novoTelefone, novaCategoria) if(x.nome == nomeAlterar) else(x), x))
+                print("Fornecedor alterado com sucesso")
             else:
                 print("Esse CNPJ já exste")
         else:
             print("O fornecedor que deseja alterar não existe")
         
-        with open("forncedores.txt","w") as arq:
+        with open("fornecedores.txt","w") as arq:
             for i in x:
                 arq.writelines(i.nome + "|" + i.cnpj + "|" + i.telefone + "|" + str(i.categoria))
                 arq.writelines("\n")
-            print("Fornecedor alterado com sucesso")
 
     def removerFornecedor(self,nome):
         x = DaoFornecedor.ler()
@@ -310,13 +312,14 @@ class ControllerFornecedor:
         fornecedores = DaoFornecedor.ler()
         if len(fornecedores) == 0:
             print("Lista de fornecedores está vazia")
-        
-        for i in fornecedores:
+        else:
             print("==========Fornecedores==========")
-            print(f"Categoria fornecida: {i.categoria} \n"
-                  f"Nome: {i.nome} \n"
-                  f"Telefone: {i.telefone} \n"
-                  f"Cnpj: {i.cpnj} \n")
+            for i in fornecedores:
+                print(f"Categoria fornecida: {i.categoria} \n"
+                    f"Nome: {i.nome} \n"
+                    f"Telefone: {i.telefone} \n"
+                    f"Cnpj: {i.cnpj} \n")
+            print("--------------------")
 
 class ControllerCliente:
     def cadastrarCliente(self,nome,telefone,cpf,email,endereco):
@@ -332,6 +335,7 @@ class ControllerCliente:
         else:
             if len(cpf) == 11 and len(telefone) <= 11 and len(telefone) >= 10:
                 DaoPessoa.salvar(Pessoa(nome, telefone, cpf, email, endereco))
+                print("Cliente cadastrado com sucesso")
             else:
                 print("Digite um cpf ou telefone válido")
         
@@ -342,7 +346,8 @@ class ControllerCliente:
         if len(est) > 0:
             est = list(filter(lambda x: x.cpf == novoCpf, x))
             if len(est) == 0:
-                list(lambda x: Pessoa(novoNome, novoTelefone, novoCpf, novoEmail, novoEndereco) if(x.nome == nomeAlterar) else(x), x)
+                x = list(map(lambda x: Pessoa(novoNome, novoTelefone, novoCpf, novoEmail, novoEndereco) if(x.nome == nomeAlterar) else(x), x))
+                print("Cliente alterado com sucesso")
             else:
                 print("Esse CPF já exste")
         else:
@@ -352,8 +357,7 @@ class ControllerCliente:
             for i in x:
                 arq.writelines(i.nome + "|" + i.telefone + "|" + i.cpf + "|" + i.email + "|" + i.endereco)
                 arq.writelines("\n")
-            print("Cliente alterado com sucesso")
-    
+                    
     def removerCliente(self,nome):
         x = DaoPessoa.ler()
         est = list(filter(lambda x: x.nome == nome, x))
@@ -377,14 +381,15 @@ class ControllerCliente:
         clientes = DaoPessoa.ler()
         if len(clientes) == 0:
             print("Lista de clientes está vazia")
-        
-        for i in clientes:
+        else:
             print("==========Clientes==========")
-            print(f"Nome: {i.nome}\n"
-                  f"Telefone: {i.telefone}\n"
-                  f"Endereco: {i.endereco} \n"
-                  f"Email: {i.email}\n"
-                  f"CPF: {i.cpf}")
+            for i in clientes:
+                print(f"Nome: {i.nome}\n"
+                    f"Telefone: {i.telefone}\n"
+                    f"Endereco: {i.endereco} \n"
+                    f"Email: {i.email}\n"
+                    f"CPF: {i.cpf}\n")
+            print("----------")
 
 class ControllerFuncionario:
     def cadastrarFuncionario(self,clt,nome,telefone,cpf,email,endereco):
@@ -408,7 +413,7 @@ class ControllerFuncionario:
 
         est = list(filter(lambda x: x.nome == nomeAlterar, x))
         if len(est) > 0:
-            list(lambda x: Pessoa(novoClt,novoNome, novoTelefone, novoCpf, novoEmail, novoEndereco) if(x.nome == nomeAlterar) else(x), x)
+            x = list(map(lambda x: Pessoa(novoClt,novoNome, novoTelefone, novoCpf, novoEmail, novoEndereco) if(x.nome == nomeAlterar) else(x), x))
         else:
             print("O funcionario que deseja alterar não existe")
 
