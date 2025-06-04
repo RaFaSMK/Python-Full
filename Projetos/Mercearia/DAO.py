@@ -36,7 +36,7 @@ class DaoVenda:
         cls.venda = list(map(lambda x: x.split("|"), cls.venda))
         vend = []
         for i in cls.venda:
-            vend.append(Venda(Produtos(i[0],i[1],i[2],i[3],i[4],i[5],i[6])))
+            vend.append(Venda(Produtos(i[0],i[1],i[2]),i[3],i[4],i[5],i[6]))
         return vend
     
 class DaoEstoque:

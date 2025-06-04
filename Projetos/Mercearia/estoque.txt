@@ -1,1 +1,2 @@
-Banana|10|Fruta|90
+Mamao|9090|Fruta|999999999999999998
+Pera|99|Fruta|89999

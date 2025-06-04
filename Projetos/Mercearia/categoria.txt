@@ -1,3 +1,4 @@
 Fruta
 Vegetais
 Frios
+Abacate
