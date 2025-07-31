@@ -17,8 +17,8 @@ class Chat:
         self.janela_carregada = False
         self.ativo = True
         
-        self.nome = simpledialog.asktring('Nome', "Digite seu nome!", parent=login)
-        self.sala = simpledialog.asktring('Sala', "Digite a sala que deseja entrar!", parent=login)
+        self.nome = simpledialog.askstring('Nome', "Digite seu nome!", parent=login)
+        self.sala = simpledialog.askstring('Sala', "Digite a sala que deseja entrar!", parent=login)
 
         thread = threading.Thread(target=self.conecta())
         thread.start()
@@ -47,7 +47,7 @@ class Chat:
 
     def conecta(self):
         while True:
-            recebido = self.cliente.recv(1024)
+            recebido = self.client.recv(1024)
             if recebido == b'SALA':
                 self.client.send(self.sala.encode())
                 self.client.send(self.nome.encode())

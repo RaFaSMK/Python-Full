@@ -1,0 +1,68 @@
+<html>
+
+    <head> <!-- Configuções da página -->
+        <title>
+            Minha página <!-- Renomeia o nome que aparece na guia, em vez de pegar o nome do arquivo -->
+            <meta charset="utf-8"> <!-- Define o conjunto de caracteres, para não bugar o "ç" e acentos-->
+        </title>
+    </head>
+
+    <body> <!-- O que vai aparecer dentro do site-->
+        <div> <!-- Uma divisão para poder facilitar quando for usar o CSS-->
+            <h1>O que é python</h1> <!-- Ajuda o navegador saber a importancia de cada coisa para poder exibir o site quando o usuario estiver pesquisando -->
+            <h2>Meu titulo2</h2> <!-- Menos importante que o h1 -->
+            <h3>Meu titulo3</h3> <!-- Menos importante que o h2 e assim vai até o h6-->
+            <p>Parágrafo</p>
+            <a href="https://uol.com" target="_blank">Link</a> <!-- <a> serve para colocar link, o href referencia a esse link e o target faz a pagina abrir em outra guia-->
+            <br>
+            <img src="../Servidor/logo.png"> <!-- <img> serve para colocar uma imagem, e o src referencia o caminho dessa imagem -->
+        </div>
+        
+        <section> <!-- Uma seção para poder facilitar quando for usar o CSS, mesma coisa que div mas mais moderno-->
+            <h1>O que é Java</h1> <!-- Ajuda o navegador saber a importancia de cada coisa para poder exibir o site quando o usuario estiver pesquisando -->
+            <h2>Meu titulo2</h2> <!-- Menos importante que o h1 -->
+            <h3>Meu titulo3</h3> <!-- Menos importante que o h2 e assim vai até o h6-->
+            <p>Parágrafo</p>
+            <a href="teste.html" target="_blank">Link</a> <!-- <a> serve para colocar link, o href referencia a esse link e o target faz a pagina abrir em outra guia, pode ser link externo ou do mesmo servidor/pasta, como nesse caso-->
+        </section>
+
+        <div>
+            <hr>
+            <table border="1" widht="600">
+                <tr>
+                    <td><h1>Nome</h1></td>
+                    <td>Idade</td>
+                    <td>Cidade</td>
+                </tr>
+
+                <tr>
+                    <td>Caio</td>
+                    <td>21</td>
+                    <td>Franca</td>
+                </tr>
+                
+                <tr>
+                    <td><img src="../Servidor/logo.png"></td>
+                    <td colspan="2">19</td> <!-- O colspan faz a linha ocupar mais colunas-->
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <ul> <!-- Lista nao ordenada -->
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li><a href="https://www.uol.com"> Clique aqui para ir para o site da uol</a></li>
+            </ul>
+            <ol> <!-- Lista ordenada -->
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li><a href="https://www.uol.com"> Clique aqui para ir para o site da uol</a></li>
+            </ol>
+        </div>
+    </body>
+
+
+</html>

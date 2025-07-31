@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <header>
+            <table align="center" width="80%">
+                <tr>
+                    <td>
+                        <img src="logo.png" width="80" height="80">
+                    </td>
+
+                    <td align="right">
+                        <a href="">Home</a>
+                        <a href="">Contato</a>
+                        <a href="">Saiba mais</a>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </header>
+
+        <div align="center">
+            <form method="POST" action="https://google.com">
+                <input type="text" name="nome" placeholder="Digite seu nome"> <!-- O placeholder é uma legenda que fica dentro do input -->
+                <input type="password" name="senha">
+                <input type="number" name="idade">
+                <input type="color" name="cor"> 
+                <br>
+                <br>
+                <input type="date" name="data">
+                <input type="email" name="email"> <!-- Coloca uma restricao de envio se nao tiver o @ -->
+                <br>
+                <br>
+                <input type="submit"> <!-- Envia todos os dados dos formulários para o destino -->
+                <input type="file"> <!-- Envia um arquivo para o back-end -->
+
+                <br>
+                <br>
+                Cidade:
+                <br>
+                <select>
+                    <option name="F">Franca</option>
+                    <option name="S">São paulo</option>
+                    <option name="R">Ribeirão preto</option>
+                </select>
+
+                <br>
+                Sexo:
+                <br>
+                Masculino:
+                <input type="radio" name="sexo" value="M">
+                Feminino:
+                <input type="radio" name="sexo" value="F">
+
+                <br>
+                Ativo:
+                <br>
+                Sim:
+                <input type="checkbox" name="ativo" value="S">
+                Não:
+                <input type="checkbox" name="ativo" value="N">
+
+                
+                <br>
+                <input type="submit">
+
+            </form>
+        </div>
+    </body>
+</html>

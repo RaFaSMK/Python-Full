@@ -1,0 +1,24 @@
+
+h1{ /* Para se referir ao tipo de tag */
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#texto1{ /* # para se referir ao id */
+    border: 5px solid cyan;
+    color: blueviolet;
+}
+
+.texto3{ /* . para se referir à classe */
+    color: blue;
+}
+
+#borders{
+    background-color: pink;
+    border: 10px dashed green; /* Tipos de bordas, solid (linha), dashed(Riscos), doted (Pontos) e outset(Efeito de sombra)*/
+
+    border-color: red green blue gray; /* Top Right Bottom Left*/
+    border-width: 2px 10px 1px 15px; /* Top Right Bottom Left*/
+    border-style: solid dotted dashed outset; /* Top Right Bottom Left*/
+}
+
